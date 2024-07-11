@@ -57,7 +57,7 @@ new_page = notion.pages.create(
 ) 
 
 page_id = new_page["id"]
-page_url = get_page_url(page_id)
+page_url = new_page["url"] #get_page_url(page_id)
 
 # 생성된 페이지의 정보 출력
 print("Created page url:")
