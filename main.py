@@ -2,9 +2,7 @@ from notion_client import Client
 from datetime import datetime 
 import pytz
 
-def get_page_url(page_id):
-    # Notion 페이지 URL 형식
-    return f"https://www.notion.so/{page_id.replace('-', '')}"
+
 
 # 노션 API 키 설정
 notion_api_key = "secret_5J9IH9GAuyeV7KYzE4CCOY2FtXMA4xGDKJlSUeHHD6B"
@@ -14,6 +12,11 @@ notion = Client(auth=notion_api_key)
 database_id = "78c1d6bda4474eaeb5b0c5fb643b978e"
 
 """
+
+def get_page_url(page_id):
+    # Notion 페이지 URL 형식
+    return f"https://www.notion.so/{page_id.replace('-', '')}"
+
 # 데이터베이스 쿼리
 response = notion.databases.query(database_id=database_id)
 
@@ -24,6 +27,7 @@ for page in response['results']:
 
     print(f"Title: {title}")    
     print("-" * 20)
+    
 """
 
 # 한국 표준시(KST) 타임존 가져오기
@@ -56,7 +60,7 @@ new_page = notion.pages.create(
     }
 ) 
 
-page_id = new_page["id"]
+#page_id = new_page["id"]
 page_url = new_page["url"] #get_page_url(page_id)
 
 # 생성된 페이지의 정보 출력
